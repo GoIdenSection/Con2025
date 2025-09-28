@@ -8,7 +8,8 @@ public enum CustomerState
     DoneCharging,
     Traveling,
     TransitioningToNode,
-    TransitioningToGraph,
+    TransitioningToEdge,
     DestinationReached,
-    FailedToCharge
+    FailedToCharge,
+    RanOutOfJuice
 }
