@@ -2,7 +2,7 @@
 
 public record ZoneDto
 {
-    public required Guid Id { get; init; }
+    public required string Id { get; init; }
     public required float TopLeftX { get; init; }
     public required float TopLeftY { get; init; }
     public required float BottomRightX { get; init; }
