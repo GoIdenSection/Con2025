@@ -2,6 +2,6 @@
 
 public record CustomerRecommendationDto
 {
-    public Guid? CustomerId { get; set; }
-    public List<Guid> ChargingRecommendations { get; set; } = [];
+    public string? CustomerId { get; set; }
+    public List<string> ChargingRecommendations { get; set; } = [];
 }
