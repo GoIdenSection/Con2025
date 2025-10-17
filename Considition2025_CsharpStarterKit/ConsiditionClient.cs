@@ -8,15 +8,16 @@ public class ConsiditionClient
 {
     private readonly HttpClient client;
 
-    public ConsiditionClient(string _baseUri)
+    public ConsiditionClient(string _baseUri, string _apiKey)
     {
         client = new HttpClient();
         client.BaseAddress = new Uri(_baseUri);
+        client.DefaultRequestHeaders.Add("x-api-key", _apiKey);
     }
 
-    public async Task<GameResponseDto?> PostGame(GameInputDto _inputDto)
+    public async Task<GameResponseDto?> PostGame(GameInputDto _inputDto, bool _saveGame)
     {
-        var response = await client.PostAsJsonAsync("game", _inputDto);
+        var response = await client.PostAsJsonAsync($"game?saveGame={_saveGame}", _inputDto);
 
         if (!response.IsSuccessStatusCode)
             return null;

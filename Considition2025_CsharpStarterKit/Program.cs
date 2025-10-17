@@ -3,9 +3,10 @@ using Considition2025_CsharpStarterKit;
 using Considition2025_CsharpStarterKit.Dtos.Request;
 using Considition2025_CsharpStarterKit.Dtos.Response;
 
-var client = new ConsiditionClient("http://localhost:9090");
+string apiKey = "INSERT API KEY HERE";
+var client = new ConsiditionClient("http://localhost:9090", apiKey);
 
-const string mapName = "Test";
+const string mapName = "INSERT MAP NAME HERE";
 var map = await client.GetMap(mapName);
 
 if (map is null)
@@ -32,7 +33,7 @@ for (var i = 0; i < map.Ticks; i++)
     {
         Console.WriteLine($"Playing tick: {i} with input: {input}");
         var timmer = Stopwatch.StartNew();
-        var gameResponse = await client.PostGame(input);
+        var gameResponse = await client.PostGame(input, false);
         timmer.Stop();
         Console.WriteLine($"Tick {i} took: {timmer.Elapsed:g}");
 
