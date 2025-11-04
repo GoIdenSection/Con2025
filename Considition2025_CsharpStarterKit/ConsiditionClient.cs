@@ -15,9 +15,9 @@ public class ConsiditionClient
         client.DefaultRequestHeaders.Add("x-api-key", _apiKey);
     }
 
-    public async Task<GameResponseDto?> PostGame(GameInputDto _inputDto, bool _saveGame)
+    public async Task<GameResponseDto?> PostGame(GameInputDto _inputDto)
     {
-        var response = await client.PostAsJsonAsync($"game?saveGame={_saveGame}", _inputDto);
+        var response = await client.PostAsJsonAsync("api/game", _inputDto);
 
         if (!response.IsSuccessStatusCode)
             return null;
@@ -27,6 +27,6 @@ public class ConsiditionClient
 
     public async Task<MapDto?> GetMap(string _mapName)
     {
-        return await client.GetFromJsonAsync<MapDto>($"map?mapName={_mapName}");
+        return await client.GetFromJsonAsync<MapDto>($"api/map?mapName={_mapName}");
     }
 }
