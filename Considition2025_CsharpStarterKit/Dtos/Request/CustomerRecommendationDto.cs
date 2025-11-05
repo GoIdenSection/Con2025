@@ -3,5 +3,11 @@
 public record CustomerRecommendationDto
 {
     public string? CustomerId { get; set; }
-    public List<string> ChargingRecommendations { get; set; } = [];
+    public List<ChargingRecommendationDto> ChargingRecommendations { get; set; } = [];
+}
+
+public record ChargingRecommendationDto
+{
+    public required string NodeId { get; init; }
+    public float ChargeTo { get; init; }
 }
